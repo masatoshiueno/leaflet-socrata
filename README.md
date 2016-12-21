@@ -1,26 +1,36 @@
 # leaflet-socrata
-testing leaflet maps with external Socrata open data feed
+Leaflet maps with external Socrata open data feed
 
-## demo maps
+## Demos
 
-https://jackdougherty.github.io/leaflet-socrata/index.html
+Working examples where Socrata data includes separate columns for latitude, longitude
 
-this demo currently works when Socrata data source designates fields as latitude, longitude
+example 1
+- data https://data.cityofnewyork.us/Social-Services/Halloween-Noise-Lat-Long/25yv-wyir
+- map https://jackdougherty.github.io/leaflet-socrata/index.html
+- credit http://stackoverflow.com/questions/33684726/socrata-soda-api-call-via-jquery-not-returning-the-entire-dataset
 
-data source: https://data.cityofnewyork.us/Social-Services/Halloween-Noise-Lat-Long/25yv-wyir
+example 2
+- data https://opendata.demo.socrata.com/Government/Kentucky-Farmers-Market-Map/3bfj-rqn7
+- map https://jackdougherty.github.io/leaflet-socrata/index2.html
+- credit https://github.com/chriswhong/simpleSodaLeaflet
 
-## to do
+## Problem
 
-1) How to make control layers work properly in similar example?
+How to rewrite the code when latitude and longitude are combined in one point data field (geom) inside Socrata?
+
+example 3
+- data from Hartford Open Data (with "geom" column) https://data.hartford.gov/Public-Health/Current-Class-1-Class-4-Food-Establishments/xkvv-76v8
+- map (not yet working) https://jackdougherty.github.io/leaflet-socrata/index3.html
+- console error: Invalid LatLng object: (undefined, undefined)
+
+
+## to do later
+
+See how Chris Whong uses soda-leaflet to limit results to most recent 7 days
+- data https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9
+- code repo https://github.com/chriswhong/soda-leaflet/
+
+fix control layers for legend
 
 https://jackdougherty.github.io/leaflet-socrata/index-control-layers.html
-
-2) How to make this work when lat and long are buried inside a geom field in the Socrata source data?
-
-Hartford source data: https://dev.socrata.com/foundry/data.hartford.gov/egxr-myum
-
-Idea: See how CWong did this with this data:
-https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9
-
-and this section of code from his soda-leaflet
-https://github.com/chriswhong/soda-leaflet/blob/master/js/script.js
