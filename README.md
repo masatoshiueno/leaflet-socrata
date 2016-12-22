@@ -19,7 +19,7 @@ Go to any Socrata open data platform, find a dataset, and click the API tab
 
 Copy the API endpoint. The default version ends in .json
 
-If you're new to APIs, test the endpoint by pasting it into your browser, and you will see its data stream in JSON format.
+If you're new to APIs, test the endpoint by pasting it into your browser (Chrome works best at this), and you will see its data stream in JSON format.
 
 Test if this Socrata endpoint supports GeoJSON format by changing the suffix in your browser from ```.json``` to ```.geojson```. GeoJSON format works best with Leaflet because the coding is simpler.
 
@@ -40,7 +40,7 @@ If your Socrata endpoint only supports JSON format, but includes data columns wi
 - data https://data.hartford.gov/Public-Health/Current-Class-1-Class-4-Food-Establishments/xkvv-76v8
 - note: location data appears as latitude and longitude coordinates in the ```geom``` column
 
-- steps to create your own
+- steps to create your own   (MORE TODO HERE)
 
   - select API button, copy endpoint, and change suffix from .json to .geojson
 
@@ -55,16 +55,14 @@ If your Socrata endpoint only supports JSON format, but includes data columns wi
 ### Multiple Socrata datasets with Leaflet control layers legend
 - map https://jackdougherty.github.io/leaflet-socrata/index-control-layers.html
 
-
 ### Older JSON-only endpoint, with separate columns for latitude, longitude
 - map https://jackdougherty.github.io/leaflet-socrata/index-json.html
 - data https://opendata.demo.socrata.com/Government/Kentucky-Farmers-Market-Map/3bfj-rqn7
-
 
 ## Learn more
 - https://dev.socrata.com/
 - https://github.com/chriswhong/simpleSodaLeaflet
 
 ## Thanks to
-Chris Metcalf https://github.com/chrismetcalf
-Tyler Klyeklamp https://data.ct.gov/
+- Chris Metcalf https://github.com/chrismetcalf
+- Tyler Klyeklamp https://data.ct.gov/
