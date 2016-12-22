@@ -28,51 +28,15 @@
   <script>
   // set the map center and zoom level
   var map = L.map('map').setView([41.76, -72.69], 9);
-
+  
   // add link to view code on GitHub
   map.attributionControl
   .setPrefix('View <a href="http://github.com/jackdougherty/leaflet-socrata">code on GitHub</a> with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
 
-  // add legend control layers - global variable with (null, null) allows indiv basemaps and overlays to be added inside functions below
-  var controlLayers = L.control.layers( null, null, {
-    position: "topright",
-    collapsed: false // false = open by default
-  }).addTo(map);
-
-  /* BASELAYERS */
-
+  // add a basemap
   var lightAll = new L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-  }).addTo(map); // adds layer by default
-  controlLayers.addBaseLayer(lightAll, 'Gray streets (Carto)');
-
-  var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-  });
-  controlLayers.addBaseLayer(Esri_WorldImagery, 'Satellite (Esri)');
-
-  /* OVERLAYS */
-
-  // load open data from Socrata endpoint in GeoJSON format
-  // with simple marker styling: blue circles
-  // Connecticut School Directory, CT Open Data, https://data.ct.gov/resource/v4tt-nt9n
-  $.getJSON("https://data.ct.gov/resource/v4tt-nt9n.geojson", function (data){
-    var geoJsonLayer = L.geoJson(data, {
-      pointToLayer: function( feature, latlng) {
-        var circle = L.circleMarker(latlng, {
-          radius: 6,
-          fillColor: "blue",
-          color: "blue",
-          weight: 2,
-          opacity: 1,
-          fillOpacity: 0.7
-        });
-        circle.bindPopup(feature.properties.name + '<br>' + feature.properties.district_name); // replace last term with property data labels to display from GeoJSON file
-        return circle;
-      }
-    }).addTo(map); // insert ".addTo(map)" to display layer by default
-    controlLayers.addOverlay(geoJsonLayer, 'Public Schools (CT Open Data)');
-  });
+  }).addTo(map);
 
   // load open data from Socrata endpoint in GeoJSON format, with simple filter https://dev.socrata.com/docs/filtering.html
   // with simple marker styling: orange circles
@@ -92,11 +56,9 @@
         circle.bindPopup(feature.properties.business + '<br>' + feature.properties.item); // replace last term with property data labels to display from GeoJSON file
         return circle;
       }
-    }); // insert ".addTo(map)" to display layer by default
-    controlLayers.addOverlay(geoJsonLayer, 'Peaches (CT Open Data)');
+    }).addTo(map);
   });
 
   </script>
-
 </body>
 </html>
