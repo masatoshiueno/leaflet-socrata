@@ -4,6 +4,8 @@ Leaflet maps with Socrata API open data feeds, in GeoJSON and JSON format
 ## Learn why and how to pair Leaflet with Socrata
 - see free online book, *Data Visualization for All*, https://www.datavizforall.org/leaflet/with-socrata/index.html
 
+- requires developers to register for a free Socrata app token at https://dev.socrata.com/register
+
 ## Demonstration maps
 
 ### GeoJSON endpoint with default markers and pop-up info window
@@ -23,6 +25,7 @@ Leaflet maps with Socrata API open data feeds, in GeoJSON and JSON format
 
 ## Learn more
 - https://dev.socrata.com/
+- https://dev.socrata.com/consumers/getting-started.html
 - https://github.com/chriswhong/simpleSodaLeaflet
 
 ## Thanks to

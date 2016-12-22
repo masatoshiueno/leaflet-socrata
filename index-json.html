@@ -39,8 +39,9 @@
   }).addTo(map);
 
   // load open data from Socrata endpoint in older JSON-only format, with latitude and longitude columns
+  // register your own Socrata app token at https://dev.socrata.com/register
   // Kentucky Farmers Markets, Socrate demo data, https://opendata.demo.socrata.com/resource/3bfj-rqn7
-  $.getJSON("https://opendata.demo.socrata.com/resource/3bfj-rqn7.json", function(data){
+  $.getJSON("https://opendata.demo.socrata.com/resource/3bfj-rqn7.json?&$$app_token=QVVY3I72SVPbxBYlTM8fA7eet", function(data){
     for(var i=0; i<data.length; i++) {
       var marker = data[i];
       L.marker( [data[i].location_1.latitude, data[i].location_1.longitude] )
